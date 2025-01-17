@@ -20,12 +20,12 @@ app.use('/api/workouts/', workoutsRouter);
 
 // اتصال بقاعدة البيانات وتشغيل السيرفر
 mongoose
-    .connect(process.env.MONG_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(process.env.MONG_URI)
     .then(() => {
         console.log('Connected to DB');
 
         // التأكد من استماع السيرفر على المنفذ الصحيح
-        const port = process.env.PORT || 4000; // تحديد المنفذ مع قيمة افتراضية
+        const port = process.env.PORT || 3000; // تحديد المنفذ مع قيمة افتراضية
         app.listen(port, '0.0.0.0', () => {
             console.log(`Server is running on port ${port}`);
         });
